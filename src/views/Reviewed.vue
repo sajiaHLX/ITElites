@@ -78,7 +78,7 @@
         errMessage:'',
         mdata:{},
         insertRow:false,
-        pageN:1,
+        pageN:0,
         allPage:0,
       }
     },

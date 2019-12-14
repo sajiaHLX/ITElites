@@ -35,14 +35,15 @@
               </div>
               <div class="form-group">
                 <label for="userSay" class="formlabel">有没有什么想说的?</label>
-                <textarea v-model="userSay" name="userSay" id="userSay" cols="30" rows="10" class="fromControl" placeholder="说说你的个人想法，随意发挥，不做要求"></textarea>
-              </div>
-              <div id="wordNum">
-                <span>{{wordNum}}/50</span>
+                <textarea v-model="userSay" name="userSay" id="userSay" cols="30" rows="10" class="fromControl" placeholder="说说你的个人想法，随意发挥，不做要求">
+                </textarea>
+                <div id="wordNum">
+                  <span>{{wordNum}}/50</span>
+                </div>
               </div>
             </form>
           <div class="submitBtn1">
-            <input type="submit" class="submitBtn" @click="stuSubmit();return false;" value="我确定啦">
+            <input type="button" class="submitBtn" @click="stuSubmit();" value="我确定啦">
           </div>
         </div>
         
@@ -128,6 +129,7 @@
           this.toast('当前网络状态不佳，请稍后再试！');
           console.log("失败");
         })
+        return false;
       },
 
       // 弹出框
@@ -239,9 +241,8 @@
     100% {opacity: 0; z-index: 0}
   }
   .form-group{
-    margin-bottom: 15px;
-    margin-right: -15px;
-    margin-left: -15px;
+    width: 70%;
+    margin: 0 auto 25px;
   }
   .form-group span{
     font-size: 8px;
@@ -250,7 +251,7 @@
     max-width: 200px;
     position: relative;
     float: left;
-    width: 25%;
+    width: 50%;
     text-align: center;
     margin-top: 5px;
     margin-right: 15px;
@@ -260,7 +261,7 @@
     box-sizing: border-box;
     /* position: relative; */
     display: block;
-    width: 60%;
+    width: 90%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -273,7 +274,8 @@
   .submitBtn{
     display: block;
     position: relative;
-    left: 28%;
+    left: 50%;
+    transform: translateX(-50%);
     color: #fff;
     background: #337ab7;
     /* width: 80px; */
@@ -300,10 +302,15 @@
     resize:none;
   }
   #wordNum{
+    position: relative;
+    /* left: 50%; */
     width: 30px;
     font-size: 8px;
-    margin-top: -12px ;
-    margin-left: 70%;
+    /* right: 30%; */
+    left: 75%;
+    /* margin-top: -12px ; */
+    /* margin-left: 600px; */
+    /* margin-left: 70%; */
   }
   .adminlogin{
     width: 80px;
@@ -311,7 +318,9 @@
     user-select: none;
     cursor: pointer;
     position: relative;
-    left: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
     margin-top: -5px;
     margin-bottom: 5px;
   }
@@ -330,8 +339,11 @@
       border-radius: 4px;
       float: none;
     }
+    .form-group{
+      width: 100%;
+    }
     .formlabel{
-      width: 50%;
+      width: 70%;
       margin-top: 0px;
       /* float: left; */
       text-align: left;
@@ -341,7 +353,8 @@
       height: 100px;
     }
     #wordNum{
-      margin-left: 93%;
+      /* margin-left: 93%; */
+      left: 90%;
     }
     .submitBtn{
       position: relative;
