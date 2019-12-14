@@ -77,8 +77,8 @@
         message: '志愿填报列表',
         selected1: '编程组',
         groupList:{},
-        groupO:'',
-        groupT:'',
+        groupO:'ALL',
+        groupT:'ALL',
         userChoose: '',
         pieshow: true,
         rteam:{},
@@ -385,7 +385,7 @@
         this.$router.push('/reviewed')
       }
     },
-    mounted() {
+    created() {
       // http://106.15.206.229/info/get/team
       // http://jsonplaceholder.typicode.com
 

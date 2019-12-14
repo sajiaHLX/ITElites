@@ -13,7 +13,7 @@
             <form action="index.html" class="login-form">
               <div class="form-group">
                 <label class="formlabel" for="snoInput">请先输入你的学号<br>
-                  <span>（输入学号后请等一等<span>.</span><span>.</span><span>.</span>）</span>
+                  <span>（输入学号后请等一等...）</span>
                 </label>
                 <input v-model="sno" class="fromControl" type="text" name="snoInput" id="snoInput" placeholder="请输入你的学号">
               </div>
@@ -192,7 +192,7 @@
     width: 90%;
     height: auto;
     /* background: #2b90d9; */
-    margin: 10px auto 0;
+    margin: 10px auto 10px;
     border: 2px solid #d9e1e8;
   }
   .title{
@@ -326,6 +326,9 @@
   }
 
   @media screen and (max-width: 759px) {
+    .container{
+    margin: 10px auto 30px;
+    }
     .errMessage{
       width: 50%;
     }

@@ -299,8 +299,7 @@
         this.userdata=this.oldData[this.pageN];
       }
     },
-
-    mounted() {
+    created() {
       axios.get('/info/get/team').then((data) => {
         this.team = data.data.data
       }).catch(() => {
