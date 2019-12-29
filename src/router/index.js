@@ -26,12 +26,32 @@ const routes = [
   {
     path:'/backstage',
     name:'backstage',
-    component:Backstage
+    component:Backstage,
+    meta: { requireAuth:true },
+    beforeEnter: (to, from, next) => {
+      if (window.sessionStorage.getItem('isLogin') !== '1') {
+        next({
+          path: '/login'
+        })
+      } else {
+        next()
+      }
+    }
   },
   {
     path:'/reviewed',
     name:'reviewed',
-    component:Reviewed
+    component:Reviewed,
+    meta: { requireAuth:true },
+    beforeEnter: (to, from, next) => {
+      if (window.sessionStorage.getItem('isLogin') !== '1') {
+        next({
+          path: '/login'
+        })
+      } else {
+        next()
+      }
+    }
   }
 ]
 

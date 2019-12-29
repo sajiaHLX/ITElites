@@ -9,7 +9,7 @@
       </div>
       <div class="txtb txtbsecond">
         <input type="text" id="passwordInput">
-        <span data-placeholder="passWord"></span>
+        <span data-placeholder="passWord"></span> 
       </div>
       <input @click="submitBtn()" type="button" class="submitBtn" value="Login">
     </form>
@@ -21,7 +21,10 @@
   export default {
     data() {
       return {
-        isshow:false
+        isshow:false,
+        loginForm:{
+          username:null,
+        }
       }
     },
     methods: {
@@ -38,7 +41,10 @@
           return false;
         }
         if (username == "admin" && password == "admin") {
-          this.$router.push('/backstage')
+          this.loginForm.username = username;
+          this.$store.commit('$_setStorage', {user: this.loginForm.username});
+          this.$store.commit('$_setLogin', '1');
+          this.$router.push('/backstage');
         } else {
           document.getElementById('tip').innerHTML = "用户名或密码错误";
           return false;

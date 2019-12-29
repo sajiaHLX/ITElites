@@ -33,13 +33,13 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group">
+              <div id="usersay1" class="form-group wordNum" data-content="00/50">
                 <label for="userSay" class="formlabel">有没有什么想说的?</label>
                 <textarea v-model="userSay" name="userSay" id="userSay" cols="30" rows="10" class="fromControl" placeholder="说说你的个人想法，随意发挥，不做要求">
                 </textarea>
-                <div id="wordNum">
+                <!-- <div id="wordNum">
                   <span>{{wordNum}}/50</span>
-                </div>
+                </div> -->
               </div>
             </form>
           <div class="submitBtn1">
@@ -177,6 +177,7 @@
       userSay:{
         handler(newVal,oldval){
           this.wordNum=this.userSay.length;
+          document.getElementById("usersay1").setAttribute("data-content",this.wordNum+"/50")
           if(this.wordNum>=50){
             this.userSay=this.userSay.slice(0,50);
             // console.log(this.userSay.slice(0,50));
@@ -251,17 +252,18 @@
     max-width: 200px;
     position: relative;
     float: left;
-    width: 50%;
+    width: 35%;
     text-align: center;
     margin-top: 5px;
     margin-right: 15px;
   }
   .fromControl{
     max-width: 550px;
+    /* min-width: 250px; */
     box-sizing: border-box;
     /* position: relative; */
     display: block;
-    width: 90%;
+    width: 60%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -270,6 +272,15 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     /* float: right; */
+  }
+  .wordNum::after{
+    content: attr(data-content);
+    display: block;
+    font-size: 8px;
+    position: absolute;
+    left: 70%;
+    width: 31px;
+    /* height: 30px; */
   }
   .submitBtn{
     display: block;
@@ -301,13 +312,15 @@
     height: 80px;
     resize:none;
   }
+
   #wordNum{
-    position: relative;
+    /* position: relative; */
     /* left: 50%; */
-    width: 30px;
-    font-size: 8px;
+    /* width: 30px; */
+    /* font-size: 8px; */
     /* right: 30%; */
-    left: 75%;
+    /* left: 75%; */
+    /* max */
     /* margin-top: -12px ; */
     /* margin-left: 600px; */
     /* margin-left: 70%; */

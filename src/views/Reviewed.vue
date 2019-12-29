@@ -135,6 +135,7 @@
 
           // 总页数
           this.allPage=parseInt(mdataLength/15)+1;
+          this.pageN=1;
 
           // 判断是否进行学号搜素
           if (value == '') {
@@ -168,7 +169,7 @@
           gradeitem = [],
           newdata = [];
         // 对分数进行处理
-        for (let item of gradeList) {
+        for (let item of  gradeList) {
           gradeitem.push(item.value);
         }
         grade = gradeitem.filter((item) => {
@@ -332,6 +333,7 @@
   .container {
     position: relative;
     width: 90%;
+    min-width: 950px;
     height: auto;
     /* background: #2b90d9; */
     margin: 10px auto 20px;
